@@ -1,6 +1,5 @@
 import express from "express";
-
-const PORT = 8000;
+import { PORT } from "./config.js";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));

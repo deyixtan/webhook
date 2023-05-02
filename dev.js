@@ -1,7 +1,6 @@
 import ngrok from "ngrok";
 import nodemon from "nodemon";
-
-const PORT = 8000;
+import { PORT } from "./config.js";
 
 (async () => {
   const url = await ngrok.connect({proto: "http", addr: PORT});
