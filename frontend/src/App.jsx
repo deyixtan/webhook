@@ -6,6 +6,7 @@ const PORT = 8001;
 
 const App = () => {
   const [requestItems, setRequestItems] = useState([]);
+  const [requestSelectionIdx, setRequestSelectionIdx] = useState(-1);
 
   useEffect(() => {
     const ws = new WebSocket(`ws://localhost:${PORT}`);
@@ -18,7 +19,14 @@ const App = () => {
   }, []);
 
   return (
-    <RequestContext.Provider value={requestItems}>
+    <RequestContext.Provider
+      value={{
+        requestItems,
+        setRequestItems,
+        requestSelectionIdx,
+        setRequestSelectionIdx,
+      }}
+    >
       <IndexPage />
     </RequestContext.Provider>
   );

@@ -1,13 +1,22 @@
+import { useContext } from "react";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
+import RequestContext from "./RequestContext";
 
-const RequestListItem = ({ idx, requestItem }) => {
+const RequestListItem = ({ details }) => {
+  const { setRequestSelectionIdx } = useContext(RequestContext);
+  const { idx, renderId, requestItem } = details;
+
   const { method, url } = requestItem;
 
+  const handleItemClick = (idx) => {
+    setRequestSelectionIdx(idx);
+  };
+
   return (
-    <TableRow key={idx}>
+    <TableRow hover onClick={() => handleItemClick(idx)}>
       <TableCell component="th" scope="row">
-        {idx}
+        {renderId}
       </TableCell>
       <TableCell>{method}</TableCell>
       <TableCell>{url}</TableCell>
