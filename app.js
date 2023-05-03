@@ -1,13 +1,16 @@
 import express from "express";
+import multer from "multer";
 import { WebSocketServer } from "ws";
 import { HTTP_PORT, WS_PORT } from "./config.js";
 
 const app = express();
 const wsServer = new WebSocketServer({ port: WS_PORT });
+const upload = multer();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.json({ type: "application/csp-report" }));
+app.use(upload.array());
 
 app.all("/*", (req, res) => {
   const { httpVersion, url, method, headers, query, body } = req;
