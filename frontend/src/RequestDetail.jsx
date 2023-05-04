@@ -16,7 +16,16 @@ const RequestDetail = () => {
   const requestItem = requestItems[requestSelectionIdx];
   const { httpVersion, url, method, headers, query, body } = requestItem;
   return (
-    <Stack spacing={3} padding={3}>
+    <Stack
+      spacing={3}
+      padding={3}
+      sx={{
+        width: "100%",
+        height: "100%",
+        maxWidth: "100%",
+        maxHeight: "100%",
+      }}
+    >
       <Typography variant="h6" component="h6">
         REQUEST INFO (ID = {requestItems.length - requestSelectionIdx})
       </Typography>
@@ -24,19 +33,19 @@ const RequestDetail = () => {
         <Table>
           <TableBody>
             <TableRow>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" sx={{ fontWeight: 600 }}>
                 http version
               </TableCell>
               <TableCell>{httpVersion}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" sx={{ fontWeight: 600 }}>
                 uri
               </TableCell>
               <TableCell>{url}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" sx={{ fontWeight: 600 }}>
                 method
               </TableCell>
               <TableCell>{method}</TableCell>
@@ -44,9 +53,8 @@ const RequestDetail = () => {
           </TableBody>
         </Table>
       </TableContainer>
-
       <Typography variant="h6" component="h6">
-        Request Headers
+        REQUEST HEADERS
       </Typography>
       <TableContainer component={Paper} sx={{ width: "100%" }}>
         <Table>
@@ -56,7 +64,11 @@ const RequestDetail = () => {
               Object.keys(headers).map((headerKey) => {
                 return (
                   <TableRow>
-                    <TableCell component="th" scope="row">
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      sx={{ fontWeight: 600 }}
+                    >
                       {headerKey}
                     </TableCell>
                     <TableCell>{headers[headerKey]}</TableCell>
@@ -66,9 +78,8 @@ const RequestDetail = () => {
           </TableBody>
         </Table>
       </TableContainer>
-
       <Typography variant="h6" component="h6">
-        Request Query
+        REQUEST QUERY
       </Typography>
       <TableContainer component={Paper} sx={{ width: "100%" }}>
         <Table>
@@ -78,7 +89,11 @@ const RequestDetail = () => {
               Object.keys(query).map((headerKey) => {
                 return (
                   <TableRow>
-                    <TableCell component="th" scope="row">
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      sx={{ fontWeight: 600 }}
+                    >
                       {headerKey.toLowerCase()}
                     </TableCell>
                     <TableCell>{query[headerKey]}</TableCell>
@@ -88,9 +103,8 @@ const RequestDetail = () => {
           </TableBody>
         </Table>
       </TableContainer>
-
       <Typography variant="h6" component="h6">
-        Request Body
+        REQUEST BODY
       </Typography>
       <TableContainer component={Paper} sx={{ width: "100%" }}>
         <Table>
@@ -100,7 +114,11 @@ const RequestDetail = () => {
               Object.keys(body).map((headerKey) => {
                 return (
                   <TableRow>
-                    <TableCell component="th" scope="row">
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      sx={{ fontWeight: 600 }}
+                    >
                       {headerKey.toLowerCase()}
                     </TableCell>
                     <TableCell>{body[headerKey]}</TableCell>

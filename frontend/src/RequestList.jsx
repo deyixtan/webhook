@@ -15,11 +15,28 @@ const RequestList = () => {
   const { requestItems } = useContext(RequestContext);
 
   return (
-    <Stack spacing={3} padding={3}>
+    <Stack
+      spacing={3}
+      padding={3}
+      sx={{
+        width: "100%",
+        height: "100%",
+        maxWidth: "100%",
+        maxHeight: "100%",
+      }}
+    >
       <Typography variant="h6" component="h6">
         REQUEST LIST
       </Typography>
-      <TableContainer component={Paper} sx={{ width: "100%", height: "100%" }}>
+      <TableContainer
+        component={Paper}
+        sx={{
+          width: "100%",
+          height: "100%",
+          maxWidth: "100%",
+          maxHeight: "100%",
+        }}
+      >
         <Table>
           <TableHead>
             <TableRow>
